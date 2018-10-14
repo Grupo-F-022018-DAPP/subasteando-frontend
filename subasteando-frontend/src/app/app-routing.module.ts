@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { AuctionsComponent }      from './auctions/auctions.component';
+
+const routes: Routes = [
+  { path: 'auctions', component: AuctionsComponent }
+];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+  imports: [ RouterModule.forRoot(routes) ],
+   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
