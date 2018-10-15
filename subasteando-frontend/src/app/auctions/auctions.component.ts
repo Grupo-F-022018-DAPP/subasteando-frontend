@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AUCTIONS } from '../mock-auction';
+import { Auction } from '../auction'
+import { AuctionService } from '../auction.service';
 
 @Component({
   selector: 'app-auctions',
@@ -8,11 +10,18 @@ import { AUCTIONS } from '../mock-auction';
 })
 export class AuctionsComponent implements OnInit {
 
-  auctions = AUCTIONS;
+  auction: Auction;
+  auctions: Auctions[];
 
-  constructor() { }
+  constructor(private auctionService: AuctionService) { }
 
   ngOnInit() {
+    this.getAuctions();
   }
+
+  getAuctions(): void {
+  this.auctionService.getAuctions()
+      .subscribe(auctions => this.auctions = auctions);
+}
 
 }

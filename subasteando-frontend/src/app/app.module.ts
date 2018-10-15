@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuctionsComponent } from './auctions/auctions.component';
+import { AuctionDetailComponent } from './auction-detail/auction-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuctionsComponent
+    AuctionsComponent,
+    AuctionDetailComponent
   ],
   imports: [
     BrowserModule,
