@@ -5,8 +5,8 @@ export class Auction {
   //pictures: string; es una lista
   initialPrice: number;
   // fechas
-  //startDate: string;
-  //endDate: string;
+  startDate: date;
+  endDate: date;
   state: string;
   // list of biddings
   //biddings: string;

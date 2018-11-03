@@ -8,6 +8,7 @@
           <a routerLink="/auction/{{auction.id}}">{{auction.title}}</a>
         </h4>
         <p class="card-text">{{auction.description}}</p>
+        <p class="card-text">{{auction.startDate | date:'medium' }}</p>
       </div>
     </div>
 </div>
