@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Auction } from '../auction'
+import { Auction } from '../auctions/auction'
 import { AuctionService } from '../auction.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
