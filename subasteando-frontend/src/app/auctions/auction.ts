@@ -7,7 +7,6 @@ export class Auction {
   // fechas
   //startDate: string;
   //endDate: string;
-  title: string;
   state: string;
   // list of biddings
   //biddings: string;

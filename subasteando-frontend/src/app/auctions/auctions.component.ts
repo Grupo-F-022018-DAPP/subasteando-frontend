@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AUCTIONS } from '../mock-auction';
-import { Auction } from '../auction'
+import { Auction } from './auction'
 import { AuctionService } from '../auction.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { AuctionService } from '../auction.service';
 export class AuctionsComponent implements OnInit {
 
   auction: Auction;
-  auctions: Auctions[];
+  auctions: Auction[];
 
   constructor(private auctionService: AuctionService) { }
 

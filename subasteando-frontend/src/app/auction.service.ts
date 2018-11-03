@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 
-import { Auction } from './auctions';
+import { Auction } from './auctions/auction';
 import { AUCTIONS } from './mock-auction';
 
 @Injectable({

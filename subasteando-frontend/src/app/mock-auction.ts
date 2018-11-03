@@ -1,4 +1,4 @@
-import { Auction } from './auction';
+import { Auction } from './auctions/auction';
 
 export const AUCTIONS: Auction[] = [
 {id: 1,
