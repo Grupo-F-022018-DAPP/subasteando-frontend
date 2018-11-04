@@ -1,7 +1,8 @@
+import { User } from '../users/user';
+
 export class Bid {
   id: number;
-  //user: User;
-  user: string;
+  user: User;
   // auction: Auction;
   auction: string;
   price: number;

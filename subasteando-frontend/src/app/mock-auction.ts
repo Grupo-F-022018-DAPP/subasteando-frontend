@@ -1,5 +1,10 @@
 import { Auction } from './auctions/auction';
 import { NgModule } from '@angular/core';
+import { User } from './users/user';
+
+let user1: User = { id: 1, name: 'Agus', surname: 'Tina', email: 'agus@tina.com' };
+let user2: User = { id: 1, name: 'Juan', surname: 'Carlos', email: 'juan_carlos@gmail.com' };
+let user3: User = { id: 1, name: 'Miguel', surname: 'Sanchez', email: 'lionelhutz@gmail.com' };
 
 export const AUCTIONS: Auction[] = [
   {
@@ -11,8 +16,9 @@ export const AUCTIONS: Auction[] = [
     startDate: new Date('11/01/2018'),
     endDate: new Date('11/08/2018'),
     state: "En progreso",
-    biddings: [{id: 1, user: 'Agus', auction: 'Jarroncito', price: 5}, {id: 2, user: 'tini', auction: 'Jarroncito', price: 50000000}],
-    actualPrice: 1100
+    biddings: [{id: 1, user: user2, auction: 'Jarroncito', price: 5}, {id: 2, user: user3, auction: 'Jarroncito', price: 50000000}],
+    actualPrice: 1100,
+    owner: user1
   },
   {
     id: 2,
@@ -23,7 +29,8 @@ export const AUCTIONS: Auction[] = [
     startDate: new Date('11/01/2018'),
     endDate: new Date('11/08/2018'),
     state: "En progreso",
-    biddings: [{id: 1, user: 'Agus', auction: 'Jarroncito', price: 5}],
+    biddings: [{id: 1, user: user1, auction: 'Jarroncito', price: 5}],
+    owner: user2,
     actualPrice: 1100
   },
   {
@@ -35,7 +42,8 @@ export const AUCTIONS: Auction[] = [
     startDate: new Date('11/01/2018'),
     endDate: new Date('11/08/2018'),
     state: "En progreso",
-    biddings: [{id: 1, user: 'Agus', auction: 'Jarroncito', price: 5}],
+    biddings: [{id: 1, user: user1, auction: 'Jarroncito', price: 5}],
+    owner: user2,
     actualPrice: 1100,
   }
 ];
