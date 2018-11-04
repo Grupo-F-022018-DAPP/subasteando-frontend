@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-lg-4 portfolio-item"  *ngFor="let auction of auctions" style="margin-top:30px">
     <div class="card h-100">
-      <a href="#"><img class="card-img-top" src="https://fotos01.diariodeibiza.es/2009/05/16/318x200/2009-05-16_IMG_2009-05-16_00:47:35_efe_20090515_153416_1_56_2.jpg" alt=""></a>
+      <a href="#"><img class="card-img-top" style="height: 240px" src={{auction.pictures[0]}} alt=""></a>
       <div class="card-body">
         <h4 class="card-title">
           <a routerLink="/auction/{{auction.id}}">{{auction.title}}</a>

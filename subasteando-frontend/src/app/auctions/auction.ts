@@ -4,14 +4,11 @@ export class Auction {
   id: number;
   title: string;
   description: string;
-  //pictures: string; es una lista
+  pictures: string[];
   initialPrice: number;
-  // fechas
   startDate: Date;
   endDate: Date;
   state: string;
-  // list of biddings
-  //biddings: string[];
   biddings: Bid[];
   actualPrice: number;
 }
