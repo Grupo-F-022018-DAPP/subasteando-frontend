@@ -8,8 +8,14 @@
           <a routerLink="/auction/{{auction.id}}">{{auction.title}}</a>
         </h4>
         <p class="card-text">{{auction.description}}</p>
-        <p class="card-text">{{auction.startDate | date:'medium' }}</p>
+        <p class="card-text">Fecha de inicio: {{auction.startDate | date:'medium' }}</p>
+        <div *ngFor="let bid of auction.biddings">
+          <p>Oferta {{bid.id}}: </p>
+          <p class="card-text">Por: {{bid.user}} | Precio: ${{bid.price}}</p>
+        </div>
+        <p class="card-text">Precio actual: ${{auction.actualPrice}}</p>
       </div>
     </div>
 </div>
+<div style="padding: 100px;"></div>
 </div>

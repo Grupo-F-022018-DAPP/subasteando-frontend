@@ -1,3 +1,5 @@
+import { Bid } from '../bids/bid';
+
 export class Auction {
   id: number;
   title: string;
@@ -5,10 +7,11 @@ export class Auction {
   //pictures: string; es una lista
   initialPrice: number;
   // fechas
-  startDate: date;
-  endDate: date;
+  startDate: Date;
+  endDate: Date;
   state: string;
   // list of biddings
-  //biddings: string;
+  //biddings: string[];
+  biddings: Bid[];
   actualPrice: number;
 }
