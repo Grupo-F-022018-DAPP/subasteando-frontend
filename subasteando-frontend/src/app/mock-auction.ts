@@ -14,7 +14,7 @@ export const AUCTIONS: Auction[] = [
     pictures: ["https://fotos01.diariodeibiza.es/2009/05/16/318x200/2009-05-16_IMG_2009-05-16_00:47:35_efe_20090515_153416_1_56_2.jpg"],
     initialPrice: 1000,
     startDate: new Date('11/01/2018'),
-    endDate: new Date('11/08/2018'),
+    endDate: new Date('12/08/2018'),
     state: "En progreso",
     biddings: [{id: 1, user: user2, auction: 'Jarroncito', price: 5}, {id: 2, user: user3, auction: 'Jarroncito', price: 50000000}],
     actualPrice: 1100,

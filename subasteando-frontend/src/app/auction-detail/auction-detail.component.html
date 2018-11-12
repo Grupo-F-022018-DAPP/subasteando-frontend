@@ -1,4 +1,7 @@
 <h4 class="card-title">
   <a>{{auction.title}}</a>
 </h4>
+<div class='image-container'><img src={{auction.pictures[0]}} alt=""></div>
 <p class="card-text">{{auction.description}}</p>
+<div>Finaliza: {{auction.endDate | date:'medium'}}</div>
+<div>Tramo actual - n° {{totalBiddings(auction)}} | Precio: {{priceOfLastBidding(auction)}} </div>

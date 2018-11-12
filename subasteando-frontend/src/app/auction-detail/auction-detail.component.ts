@@ -30,4 +30,13 @@ export class AuctionDetailComponent implements OnInit {
     .subscribe(auction => this.auction = auction);
   }
 
+  totalBiddings(auction): number {
+    return auction.biddings.length;
+  }
+
+  priceOfLastBidding(auction): string {
+    return auction.biddings[this.totalBiddings(auction) - 1].price;
+  }
+
+
 }
