@@ -21,7 +21,9 @@ export class AuctionsComponent implements OnInit {
 
   getAuctions(): void {
   this.auctionService.getAuctions()
-      .subscribe(auctions => this.auctions = auctions);
+      .subscribe(auctions =>
+        this.auctions = auctions);
+
 }
 
 }

@@ -7,6 +7,7 @@ import { AuctionsComponent } from './auctions/auctions.component';
 import { AuctionDetailComponent } from './auction-detail/auction-detail.component';
 import { BidsComponent } from './bids/bids.component';
 import { UsersComponent } from './users/users.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsersComponent } from './users/users.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

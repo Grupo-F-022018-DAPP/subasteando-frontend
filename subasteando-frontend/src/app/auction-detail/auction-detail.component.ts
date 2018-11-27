@@ -3,6 +3,7 @@ import { Auction } from '../auctions/auction'
 import { AuctionService } from '../auction.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { AuctionDetailService } from './auction-detail.service'
 
 @Component({
   selector: 'app-auction-detail',
@@ -12,11 +13,10 @@ import { Location } from '@angular/common';
 export class AuctionDetailComponent implements OnInit {
 
   auction: Auction;
-  //auction = 5;
 
   constructor(
     private route: ActivatedRoute,
-    private auctionService: AuctionService,
+    private auctionService: AuctionDetailService,
     private location: Location
   ) {}
 
@@ -27,7 +27,8 @@ export class AuctionDetailComponent implements OnInit {
   getAuction(): void {
   const id = +this.route.snapshot.paramMap.get('id');
   this.auctionService.getAuction(id)
-    .subscribe(auction => this.auction = auction);
+    .subscribe(auction =>
+      this.auction = auction);
   }
 
   totalBiddings(auction): number {
