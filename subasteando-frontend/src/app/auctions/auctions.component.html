@@ -18,11 +18,14 @@
       </div>
     </div>
 </div>
-<div *ngIf="hasPrevious">
-  <a routerLink="/auctions/{{getPreviousPage()}}" target="_parent">Anterior</a>
 </div>
-<div *ngIf="hasNext">
-  <a routerLink="/auctions/{{getNextPage()}}" target="_parent">Siguiente</a>
-</div>
-<div style="padding: 100px;"></div>
+
+<div class="row pagination-margin" >
+  <div class="far-left" *ngIf="hasPrevious">
+    <a routerLink="/auctions/{{getPreviousPage()}}" target="_parent"> <<Anterior</a>
+  </div>
+  <div class="far-right" *ngIf="hasNext">
+    <a routerLink="/auctions/{{getNextPage()}}" target="_parent"> Siguiente>> </a>
+  </div>
+    <div style="padding: 100px;"></div>
 </div>

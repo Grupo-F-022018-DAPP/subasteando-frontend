@@ -21,7 +21,7 @@ export class AuctionsComponent implements OnInit {
 
 
   constructor(private auctionService: AuctionService, private route: ActivatedRoute) {
-    this.pageSize = 5;
+    this.pageSize = 3;
   //  this.hasNext = true;
    }
 

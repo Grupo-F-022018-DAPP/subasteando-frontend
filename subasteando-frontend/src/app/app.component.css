@@ -142,8 +142,8 @@ section h2 {
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
   }
@@ -173,8 +173,8 @@ section h2 {
 }
 
 header.masthead {
-  padding-top: calc(2rem + 72px);
-  padding-bottom: 2rem;
+  padding-top: calc(0rem + 72px);
+  padding-bottom: 0rem;
 }
 
 header.masthead h1 {
@@ -189,8 +189,8 @@ header.masthead h2 {
 
 @media (min-width: 992px) {
   header.masthead {
-    padding-top: calc(2rem + 106px);
-    padding-bottom: 2rem;
+    padding-top: calc(0rem + 106px);
+    padding-bottom: 0rem;
   }
   header.masthead h1 {
     font-size: 4.75em;

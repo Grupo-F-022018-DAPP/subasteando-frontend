@@ -16,7 +16,7 @@ export class AuctionService {
   getAuctions(page: number): Observable<Auction[]> {
     //pageAmount=10&pageIndex=0
     console.log(page)
-    return this.http.get(`/api/auctions/page?pageAmount=5&pageIndex=${page}`);
+    return this.http.get(`/api/auctions/page?pageAmount=3&pageIndex=${page}`);
   }
 
   getAuction(id: number): Observable<Auction> {
