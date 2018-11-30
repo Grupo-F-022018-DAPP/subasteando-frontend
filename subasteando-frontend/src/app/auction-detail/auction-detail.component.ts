@@ -29,7 +29,7 @@ export class AuctionDetailComponent implements OnInit {
   this.auctionService.getAuction(id)
     .subscribe(auction => {
       console.log(auction);
-      this.auction = auction}); 
+      this.auction = auction});
   }
 
   totalBiddings(auction): number {

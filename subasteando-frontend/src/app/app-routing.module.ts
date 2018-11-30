@@ -5,7 +5,7 @@ import { AuctionDetailComponent }  from './auction-detail/auction-detail.compone
 import { UsersComponent }      from './users/users.component';
 
 const routes: Routes = [
-  { path: 'auctions', component: AuctionsComponent },
+  { path: 'auctions/:page', component: AuctionsComponent },
   { path: 'auction/:id', component: AuctionDetailComponent },
   { path: 'user', component:  UsersComponent }
 ];

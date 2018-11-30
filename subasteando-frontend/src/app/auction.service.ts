@@ -13,14 +13,10 @@ export class AuctionService {
   resp: any;
   constructor(private http: HttpClient) { }
 
-//   httpOptions: {
-//   headers: new HttpHeaders({
-//     'Content-Type':  'application/json'
-//   })
-// };
-
-  getAuctions(): Observable<Auction[]> {
-    return this.http.get("/api/auctions");
+  getAuctions(page: number): Observable<Auction[]> {
+    //pageAmount=10&pageIndex=0
+    console.log(page)
+    return this.http.get(`/api/auctions/page?pageAmount=5&pageIndex=${page}`);
   }
 
   getAuction(id: number): Observable<Auction> {
