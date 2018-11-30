@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable, of } from 'rxjs';
 
-import { Auction } from './auctions/auction';
+import { Auction } from '../auctions/auction';
 
 @Injectable({
   providedIn: 'root',

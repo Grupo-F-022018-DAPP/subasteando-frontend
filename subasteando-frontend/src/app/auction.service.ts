@@ -13,11 +13,11 @@ export class AuctionService {
   resp: any;
   constructor(private http: HttpClient) { }
 
-  httpOptions: {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};
+//   httpOptions: {
+//   headers: new HttpHeaders({
+//     'Content-Type':  'application/json'
+//   })
+// };
 
   getAuctions(): Observable<Auction[]> {
     return this.http.get("/api/auctions");

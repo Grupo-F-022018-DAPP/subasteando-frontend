@@ -27,8 +27,9 @@ export class AuctionDetailComponent implements OnInit {
   getAuction(): void {
   const id = +this.route.snapshot.paramMap.get('id');
   this.auctionService.getAuction(id)
-    .subscribe(auction =>
-      this.auction = auction);
+    .subscribe(auction => {
+      console.log(auction);
+      this.auction = auction}); 
   }
 
   totalBiddings(auction): number {
