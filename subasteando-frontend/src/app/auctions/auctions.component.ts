@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AUCTIONS } from '../mock-auction';
 import { Auction } from './auction'
+import { User } from '../users/user'
 import { AuctionService } from '../auction.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -18,6 +19,8 @@ export class AuctionsComponent implements OnInit {
   hasNext: boolean;
   hasPrevious: boolean;
   currentPage: number;
+  ownerIds: number[];
+  owners: User[];
 
 
   constructor(private auctionService: AuctionService, private route: ActivatedRoute) {
@@ -27,6 +30,7 @@ export class AuctionsComponent implements OnInit {
   ngOnInit() {
     this.getAuctions();
     this.currentPage =  this.getCurrentPage();
+
   }
 
 
@@ -34,21 +38,13 @@ export class AuctionsComponent implements OnInit {
     this.currentPage = +this.route.snapshot.paramMap.get('page');
     this.auctionService.getAuctions(this.currentPage)
         .subscribe(auctions => {
+          this.ownerIds = auctions.map(function(x) { return x["ownerId"] });
           this.auctions = auctions
           this.hasNext = this.hasNextPage(this.auctions.length);
           this.hasPrevious = this.hasPreviousPage(this.currentPage)
         });
   }
 
-  getAuctions(): void {
-    this.currentPage = +this.route.snapshot.paramMap.get('page');
-    this.auctionService.getAuctions(this.currentPage)
-        .subscribe(auctions => {
-          this.auctions = auctions
-          this.hasNext = this.hasNextPage(this.auctions.length);
-          this.hasPrevious = this.hasPreviousPage(this.currentPage)
-        });
-  }
 //////
 
 getCurrentPage(): number {
