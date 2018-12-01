@@ -1,15 +1,33 @@
 .far-left {
   float: left;
-  /* justify-content: flex-start; */
 }
 
 .far-right {
   float:right;
-  /* justify-content: flex-end; */
-  /* //margin-right: 20px; */
 }
 
 .pagination-margin {
   margin: 10px 5px;
   display: block;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.options-margin {
+  margin: 0 10px;
+}
+
+.btn-sub {
+  background-color: #18BC9C;
+}
+
+.white-font, .white-font:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.green-font, green-font:focus, green-font:hover, green-font:active {
+  color: #18BC9C;
 }

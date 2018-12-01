@@ -1,11 +1,22 @@
 <h1>Subastas recientes</h1>
 <div class="row">
+  <div class="options-margin btn btn-sub">
+    <a class="white-font" routerLink="/auctions/0" target="_parent">Todas</a>
+  </div>
+  <div class="options-margin btn btn-sub">
+    <a class="white-font" routerLink="/auctions/0" target="_parent">En curso</a>
+  </div>
+  <div class="options-margin btn btn-sub">
+    <a class="white-font" routerLink="/auctions/0" target="_parent">Terminadas</a>
+  </div>
+</div>
+<div class="row">
   <div class="col-lg-4 portfolio-item"  *ngFor="let auction of auctions" style="margin-top:30px">
     <div class="card h-100">
       <a href="#"><img class="card-img-top" style="height: 240px" src={{auction.pictures[0]}} alt=""></a>
       <div class="card-body">
         <h4 class="card-title">
-          <a routerLink="/auction/{{auction.id}}">{{auction.title}}</a>
+          <a class="green-font" routerLink="/auction/{{auction.id}}">{{auction.title}}</a>
         </h4>
         <p class="card-text">Subasta por: {{auction.ownerId}}</p>
         <p class="card-text">{{auction.description}}</p>
@@ -22,10 +33,10 @@
 
 <div class="row pagination-margin" >
   <div class="far-left" *ngIf="hasPrevious">
-    <a routerLink="/auctions/{{getPreviousPage()}}" target="_parent"> <<Anterior</a>
+    <a class="green-font" routerLink="/auctions/{{getPreviousPage()}}" target="_parent"> <<Anterior</a>
   </div>
   <div class="far-right" *ngIf="hasNext">
-    <a routerLink="/auctions/{{getNextPage()}}" target="_parent"> Siguiente>> </a>
+    <a class="green-font" routerLink="/auctions/{{getNextPage()}}" target="_parent"> Siguiente>> </a>
   </div>
     <div style="padding: 100px;"></div>
 </div>

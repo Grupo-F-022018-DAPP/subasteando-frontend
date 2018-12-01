@@ -190,7 +190,7 @@ header.masthead h2 {
 @media (min-width: 992px) {
   header.masthead {
     padding-top: calc(0rem + 106px);
-    padding-bottom: 0rem;
+    padding-bottom: rem;
   }
   header.masthead h1 {
     font-size: 4.75em;
@@ -337,6 +337,7 @@ form .row:first-child .floating-label-form-group {
 
 a {
   color: #18BC9C;
+
 }
 
 a:focus, a:hover, a:active {
@@ -396,4 +397,8 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.green-font, green-font:focus, green-font:hover, green-font:active {
+  color: #18BC9C;
 }

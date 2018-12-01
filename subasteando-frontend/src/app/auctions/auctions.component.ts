@@ -22,7 +22,6 @@ export class AuctionsComponent implements OnInit {
 
   constructor(private auctionService: AuctionService, private route: ActivatedRoute) {
     this.pageSize = 3;
-  //  this.hasNext = true;
    }
 
   ngOnInit() {
@@ -39,9 +38,17 @@ export class AuctionsComponent implements OnInit {
           this.hasNext = this.hasNextPage(this.auctions.length);
           this.hasPrevious = this.hasPreviousPage(this.currentPage)
         });
-
   }
 
+  getAuctions(): void {
+    this.currentPage = +this.route.snapshot.paramMap.get('page');
+    this.auctionService.getAuctions(this.currentPage)
+        .subscribe(auctions => {
+          this.auctions = auctions
+          this.hasNext = this.hasNextPage(this.auctions.length);
+          this.hasPrevious = this.hasPreviousPage(this.currentPage)
+        });
+  }
 //////
 
 getCurrentPage(): number {
