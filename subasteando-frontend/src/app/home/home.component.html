@@ -1,15 +1,11 @@
+<div class="banner" style="height:330px; padding: 15px 0">
+<a class="banner-text banner-cotainer" ><img class="hammer" src="https://i.imgur.com/zpedWyx.png" alt="">Subasteando.com</a>
+<a class="banner-text-sm banner-cotainer" >Donde subasteas y ofertas de todo</a>
+</div>
+
 <div class="container">
-<h1>Subastas</h1>
-<div class="row">
-  <div class="options-margin btn btn-sub">
-    <a class="white-font" routerLink="/auctions/0" target="_parent">Todas</a>
-  </div>
-  <div class="options-margin btn btn-sub">
-    <a class="white-font" routerLink="/auctions/0" target="_parent">En curso</a>
-  </div>
-  <div class="options-margin btn btn-sub">
-    <a class="white-font" routerLink="/auctions/0" target="_parent">Terminadas</a>
-  </div>
+<div class="row" style="margin-top: 15px;">
+  <h2>Subastas recientes</h2>
 </div>
 <div class="row">
   <div class="col-lg-4 portfolio-item"  *ngFor="let auction of auctions" style="margin-top:30px">
@@ -29,15 +25,5 @@
         <p class="card-text">Precio actual: ${{auction.actualPrice}}</p>
       </div>
     </div>
-</div>
-</div>
-
-<div class="row pagination-margin" >
-  <div class="far-left" *ngIf="hasPrevious">
-    <a class="green-font" routerLink="/auctions/{{getPreviousPage()}}" target="_parent"> <<Anterior</a>
-  </div>
-  <div class="far-right" *ngIf="hasNext">
-    <a class="green-font" routerLink="/auctions/{{getNextPage()}}" target="_parent"> Siguiente>> </a>
-  </div>
 </div>
 </div>

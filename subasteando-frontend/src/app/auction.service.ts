@@ -21,4 +21,7 @@ export class AuctionService {
     return this.http.get(`/api/auctions/${id}`);
   }
 
+  getRecentAuctions(): Observable<Auction> {
+    return this.http.get(`/api/auctions/recent?pageAmount=3&pageIndex=0`);
+  }
 }
