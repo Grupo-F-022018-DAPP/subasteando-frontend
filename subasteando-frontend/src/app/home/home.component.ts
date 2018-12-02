@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   getRecentAuctions(): void {
     this.auctionService.getRecentAuctions()
         .subscribe(auctions => {
+          console.log(auctions);
           this.auctions = auctions
         });
   }

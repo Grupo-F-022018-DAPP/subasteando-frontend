@@ -19,7 +19,7 @@
       <div  class="bid-description bold underlined"> Ultima oferta: </div>
       <div  class="flex">
         <div  class="bid-description bold">Tramo n° {{bidsLength - i}} </div>
-        <div class="bid-description"> {{bid.user.name}} {{bid.user.surname}} (ID: {{bid.user.id}})</div>
+        <div class="bid-description"> {{nameAndSurname(bid, bids)}} </div>
         <div class="bid-description">$ {{bid.price}}</div>
       </div>
     </div>
@@ -45,7 +45,7 @@
   </div>
   <div *ngIf='i != 0' class="bid-box flex">
       <div class="bid-description bold">Tramo n° {{bidsLength - i}}</div>
-      <div class="bid-description"> {{bid?.user?.name}} {{bid?.user?.surname}} (ID: {{bid?.user?.id}}) </div>
+      <div class="bid-description"> {{nameAndSurname(bid, bids)}} </div>
       <div class="bid-description">$ {{bid?.price}}</div>
   </div>
 </div>

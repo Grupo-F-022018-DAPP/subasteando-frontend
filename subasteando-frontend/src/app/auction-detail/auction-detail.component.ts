@@ -54,12 +54,26 @@ export class AuctionDetailComponent implements OnInit {
 
   manualBid(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    const userId = 11;
+    const userId = 17;
     this.auctionService.postManualBids(id, userId)
       .subscribe(bidss => {
         this.bidded = true;
         this.bids.push(bidss)
       });
+  }
+
+  nameAndSurname(bid: Bid, bids Bid[]): string {
+    var name = ""
+    if bid.user == bid.userId {
+      var name_bid = bids.find(function(b) {
+              return bid.user == b.user.id
+            });
+      name = `${name_bid.user.name} ${name_bid.user.surname}`
+    }
+    else {
+      name = `${bid.user.name} ${bid.user.surname}`
+    }
+    return name;
   }
 
 
