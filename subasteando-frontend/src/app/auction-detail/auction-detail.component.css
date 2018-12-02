@@ -1,0 +1,44 @@
+.bid-box {
+  margin: 5px 0px;
+  background-color: #F8F8F8;
+  width: 50%;
+  padding: 10px 0;
+}
+
+.bid-description {
+  margin: 8px 15px;
+}
+.current-bid-box {
+  background-color: #F0F0F0;
+  margin: 5px 0px;
+  width: 50%;
+  padding: 10px 0;
+}
+
+.next-bid-box {
+  background-color: #F0F0F0;
+  border: solid 3px #18BC9C;
+  margin: 5px 0px;
+  width: 50%;
+  padding: 10px 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 772px) {
+  .bid-box, .current-bid-box, .next-bid-box {
+    width: 100%;
+  }
+
+}

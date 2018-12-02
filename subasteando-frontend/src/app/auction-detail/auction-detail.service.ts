@@ -15,4 +15,8 @@ export class AuctionDetailService {
   getAuction(id: number): Observable<Auction> {
     return this.http.get(`/api/auctions/${id}`);
   }
+
+  getBids(auctionId: number): Observable<Auction> {
+    return this.http.get(`/api/bids/auction?auctionId=${auctionId}`);
+  }
 }

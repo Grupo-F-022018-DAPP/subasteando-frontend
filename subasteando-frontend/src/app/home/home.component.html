@@ -17,7 +17,8 @@
         </h4>
         <p class="card-text">Subasta por: {{auction.owner.name}} {{auction.owner.surname}}</p>
         <p class="card-text">{{auction.description}}</p>
-        <p class="card-text">Fecha de inicio: {{auction.startDate | date:'short' }}</p>
+        <p class="card-text">Fecha de inicio: {{auction.startDate | date:'shortDate' }}</p>
+        <p class="card-text">Fecha de finalización: {{auction.endDate | date:'short' }}</p>
         <div *ngFor="let bid of auction.biddings">
           <p>Oferta {{bid.id}}: </p>
           <p class="card-text">Por: {{bid.user.name}} {{bid.user.surname}} ({{bid.user.email}}) | Precio: ${{bid.price}}</p>
