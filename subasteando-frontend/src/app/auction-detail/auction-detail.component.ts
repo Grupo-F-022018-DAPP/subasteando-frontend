@@ -16,6 +16,7 @@ export class AuctionDetailComponent implements OnInit {
   auction: Auction;
   bids: Bid[];
   bidsLength: number;
+  bidded: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +25,10 @@ export class AuctionDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.bidded = false;
     this.getAuction();
     this.getBids();
+  //  this.manualBid();
   }
 
   getAuction(): void {
@@ -41,17 +44,22 @@ export class AuctionDetailComponent implements OnInit {
     this.auctionService.getBids(id)
       .subscribe(bids => {
         this.bidsLength = bids.length;
-        console.log(this.bidsLength);
-        this.bids = bids});
-
+        bids.sort((a, b) => {
+          return +a.id - +b.id;
+        });
+        console.log(bids);
+        this.bids = bids
+      });
   }
 
-  totalBiddings(auction): number {
-    return auction.biddings.length;
-  }
-
-  priceOfLastBidding(auction): string {
-    return auction.biddings[this.totalBiddings(auction) - 1].price;
+  manualBid(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    const userId = 11;
+    this.auctionService.postManualBids(id, userId)
+      .subscribe(bidss => {
+        this.bidded = true;
+        this.bids.push(bidss)
+      });
   }
 
 

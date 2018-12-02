@@ -36,6 +36,15 @@
   justify-content: space-evenly;
 }
 
+.btn-reload {
+  color: black;
+  background-color: #F0F0F0;
+}
+
+.reload-box {
+  background-color: #18BC9C;
+}
+
 @media (max-width: 772px) {
   .bid-box, .current-bid-box, .next-bid-box {
     width: 100%;

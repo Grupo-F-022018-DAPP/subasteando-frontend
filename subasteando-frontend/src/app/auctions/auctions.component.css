@@ -23,8 +23,9 @@
   background-color: #18BC9C;
 }
 
+
 .white-font, .white-font:hover {
-  color: white;
+  color: white!important;
   text-decoration: none;
 }
 

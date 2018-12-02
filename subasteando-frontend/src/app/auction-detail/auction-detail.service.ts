@@ -19,4 +19,9 @@ export class AuctionDetailService {
   getBids(auctionId: number): Observable<Auction> {
     return this.http.get(`/api/bids/auction?auctionId=${auctionId}`);
   }
+
+  postManualBids(id: number, userId: number): Observable<Bid> {
+    return this.http.post(`/api/bids/newManual?auctionId=${id}&userId=${userId}`)
+  }
+
 }
