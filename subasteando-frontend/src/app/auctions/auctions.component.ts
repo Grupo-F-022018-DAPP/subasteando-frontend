@@ -21,6 +21,7 @@ export class AuctionsComponent implements OnInit {
   currentPage: number;
   ownerIds: number[];
   owners: User[];
+  stateFilter: string;
 
 
   constructor(private auctionService: AuctionService, private route: ActivatedRoute) {
@@ -30,17 +31,18 @@ export class AuctionsComponent implements OnInit {
   ngOnInit() {
     this.getAuctions();
     this.currentPage =  this.getCurrentPage();
-
   }
 
 
   getAuctions(): void {
     this.currentPage = +this.route.snapshot.paramMap.get('page');
     this.auctionService.getAuctions(this.currentPage)
-        .subscribe(auctions => {
+        .subscribe(auctionss => {
+          console.log(auctionss);
+          var auctions = auctionss.content
           this.ownerIds = auctions.map(function(x) { return x["ownerId"] });
-          this.auctions = auctions
-          this.hasNext = this.hasNextPage(this.auctions.length);
+          this.auctions = auctions;
+          this.hasNext = !auctionss.last;
           this.hasPrevious = this.hasPreviousPage(this.currentPage)
         });
   }
@@ -70,5 +72,17 @@ hasPreviousPage(currentPage): boolean {
   const canGoBack = currentPage > 0;
   return canGoBack;
 }
+// //////
+// allStates(): void {
+//   this.stateFilter = "";
+// }
+//
+// finishedStates(): void {
+//   this.stateFilter = "Finished";
+// }
+//
+// inProgressStates(): void {
+//   this.stateFilter = "InProgress";
+// }
 
 }
