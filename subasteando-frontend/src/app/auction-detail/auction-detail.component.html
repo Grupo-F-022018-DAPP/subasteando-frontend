@@ -23,21 +23,23 @@
         <div class="bid-description">$ {{bid.price}}</div>
       </div>
     </div>
-    <div *ngIf="!bidded" class="next-bid-box">
-      <div  class="bid-description bold underlined"> Próxima oferta: </div>
-      <div class="flex">
-        <div  class="bid-description bold">Tramo n° {{bidsLength + 1}}</div>
-        <div  class="bid-description">$ {{auction?.nextPrice}}</div>
-        <div class="options-margin btn btn-sub" (click)="manualBid()">
-          <a class="white-font" target="_parent">Realizar oferta</a>
+    <div *ngIf="canBid(auction)" class="">
+      <div *ngIf="!bidded" class="next-bid-box">
+        <div  class="bid-description bold underlined"> Próxima oferta: </div>
+        <div class="flex">
+          <div  class="bid-description bold">Tramo n° {{bidsLength + 1}}</div>
+          <div  class="bid-description">$ {{auction?.nextPrice}}</div>
+          <div class="options-margin btn btn-sub" (click)="manualBid()">
+            <a class="white-font" target="_parent">Realizar oferta</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div *ngIf="bidded" class="next-bid-box reload-box">
-      <div class="flex white-font">
-        <div class="bid-description bold">Muchas gracias por tu oferta!</div>
-        <div class="options-margin btn btn-reload">
-          <a class="bold" routerLink="/auction/{{auction.id}}" target="_parent">Recargar página</a>
+      <div *ngIf="bidded" class="next-bid-box reload-box">
+        <div class="flex white-font">
+          <div class="bid-description bold">Muchas gracias por tu oferta!</div>
+          <div class="options-margin btn btn-reload">
+            <a class="bold" routerLink="/auction/{{auction.id}}" target="_parent">Recargar página</a>
+          </div>
         </div>
       </div>
     </div>
@@ -46,7 +48,7 @@
   <div *ngIf='i != 0' class="bid-box flex">
       <div class="bid-description bold">Tramo n° {{bidsLength - i}}</div>
       <div class="bid-description"> {{nameAndSurname(bid, bids)}} </div>
-      <div class="bid-description">$ {{bid?.price}}</div>
+      <div class="bid-description">$ {{bid?.price}} </div>
   </div>
 </div>
 </div>

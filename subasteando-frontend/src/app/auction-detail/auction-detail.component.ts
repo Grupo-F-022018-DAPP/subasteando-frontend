@@ -76,5 +76,9 @@ export class AuctionDetailComponent implements OnInit {
     return name;
   }
 
+  canBid(auction: Auction): boolean {
+    console.log(auction);
+    return auction.state.name == "InProgress";
+  }
 
 }
