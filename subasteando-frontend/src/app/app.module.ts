@@ -8,7 +8,10 @@ import { AuctionDetailComponent } from './auction-detail/auction-detail.componen
 import { BidsComponent } from './bids/bids.component';
 import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { AddAuctionComponent } from './add-auction/add-auction.component'
+
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import { HomeComponent } from './home/home.component'
     AuctionDetailComponent,
     BidsComponent,
     UsersComponent,
-    HomeComponent
+    HomeComponent,
+    AddAuctionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

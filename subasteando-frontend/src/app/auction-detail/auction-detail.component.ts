@@ -62,8 +62,8 @@ export class AuctionDetailComponent implements OnInit {
       });
   }
 
-  nameAndSurname(bid: Bid, bids Bid[]): string {
-    var name = ""
+  nameAndSurname(bid: Bid, bids: Bid[]): string {
+    var name = "";
     if bid.user == bid.userId {
       var name_bid = bids.find(function(b) {
               return bid.user == b.user.id

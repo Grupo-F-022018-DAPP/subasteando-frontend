@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Crear subasta</h1>
+  <div class="col-md-6">
+    <form (ngSubmit)="saveAuction(formNew)" #formNew="ngForm" class="form-group" action="index.html" method="post">
+      <label class="margin-form" for="title">Título</label>
+      <input [(ngModel)]="auction.title" #title="ngModel" class="form-control margin-form" type="text" name="title" value="" placeholder="Título de la subasta">
+      <label class="margin-form" for="description">Descripcion</label>
+      <input [(ngModel)]="auction.description" #description="ngModel" class="form-control margin-form" type="text" name="description" value="" placeholder="Descripcion de la subasta">
+      <label class="margin-form" for="address">Direccion</label>
+      <input [(ngModel)]="auction.address" #address="ngModel" class="form-control margin-form" type="text" name="address" value="" placeholder="Direccion de la subasta">
+      <label class="margin-form" for="pictures">Foto</label>
+      <input [(ngModel)]="auction.pictures" #pictures="ngModel" class="form-control margin-form" type="text" name="pictures" value="" placeholder="URL de la foto">
+      <label class="margin-form" for="initialPrice">Precio inicial</label>
+      <input [(ngModel)]="auction.initialPrice" #initialPrice="ngModel" class="form-control margin-form" type="number" name="initialPrice" value="" placeholder="Precio de la subasta">
+      <label class="margin-form" for="startDate">Fecha de inicio</label>
+      <input [(ngModel)]="auction.startDate" #startDate="ngModel" class="form-control margin-form" type="text" name="startDate" value="" placeholder="Con la forma DD-MM-AAAA">
+      <label class="margin-form" for="endDate">Fecha de finalizacion</label>
+      <input [(ngModel)]="auction.endDate" #endDate="ngModel" class="form-control margin-form" type="text" name="endDate" value="" placeholder="Con la forma DD-MM-AAAA HH:MM:SS">
+      <label class="margin-form" for="owner">USER ID (prueba)</label>
+      <input [(ngModel)]="auction.owner" #owner="ngModel" class="form-control margin-form" type="number" name="owner" value="" placeholder="ID del usuario creador">
+      <button class="btn btn-sub margin-form" type="submit" name="button">Crear subasta</button>
+    </form>
+
+  </div>
+</div>
