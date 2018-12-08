@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { HttpHeaders } from '@angular/common/http'
 import { Observable, of } from 'rxjs';
+import * as moment from 'moment';
+
 
 import { Auction } from './auctions/auction';
 import { AUCTIONS } from './mock-auction';
@@ -27,19 +29,22 @@ export class AuctionService {
   }
 
   saveAuction(newAuction: Auction){
-    console.log(newAuction);
-    console.log("NEW AUCTION");
-    var date = newAuction.startDate;
-    console.log(`${date.getFullDate()}-${date.getMonth()}-${date.getFullYear()}`);
+     console.log(newAuction);
+    // console.log("NEW AUCTION");
+    // var date = newAuction.startDate;
+    // console.log( moment(date).format('MM/DD/YYYY'));
+)
    var formData = {
   	"title": newAuction.title,
 	"description": newAuction.description,
   "direction": newAuction.address,
 	"initialPrice": newAuction.initialPrice,
-	"startDate": newAuction.startDate,
-  "endDate": newAuction.endDate,
+	"startDate": `${moment(newAuction.startDate).format('DD-MM-YYYY')}`,
+  "endDate": `${moment(newAuction.endDate).format('DD-MM-YYYY')} ${moment(newAuction.endTime).format('HH:mm:ss')}`,
+  // ${newAuction.endTime.getHours()}:${newAuction.endTime.getMinutes()}:00
 	"pictures": [newAuction.pictures]
 	 };
+   console.log(formData);
     return this.http.post(`/api/auctions/new?userId=${newAuction.owner}`, formData).subscribe(data => console.log(data));
   }
 }

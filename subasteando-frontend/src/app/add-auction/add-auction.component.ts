@@ -21,7 +21,9 @@ export class AddAuctionComponent implements OnInit {
     endDate: null,
     state: "New",
     biddings: [],
-    actualPrice: null
+    actualPrice: null,
+    endTime: ""
+
   }
 
   constructor(private auctionService: AuctionService) { }
