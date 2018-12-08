@@ -3,23 +3,58 @@
   <div class="col-md-6">
     <form (ngSubmit)="saveAuction(formNew)" #formNew="ngForm" class="form-group" action="index.html" method="post">
       <label class="margin-form" for="title">Título</label>
-      <input [(ngModel)]="auction.title" #title="ngModel" class="form-control margin-form" type="text" name="title" value="" placeholder="Título de la subasta">
+      <input [(ngModel)]="auction.title" #title="ngModel" class="form-control margin-form" type="text" name="title" value="" placeholder="Título de la subasta" minlength="10" maxlength="30" required>
+      <div *ngIf="title.touched && !title.valid">
+        <div class="error-font" *ngIf="title.errors.required"> Titulo es requerido</div>
+
+        <div class="error-font" *ngIf="title.errors.minlength"> Titulo debe ser de al menos 10 caracteres.</div>
+      </div>
       <label class="margin-form" for="description">Descripcion</label>
-      <input [(ngModel)]="auction.description" #description="ngModel" class="form-control margin-form" type="text" name="description" value="" placeholder="Descripcion de la subasta">
+      <input [(ngModel)]="auction.description" #description="ngModel" class="form-control margin-form" type="text" name="description" value="" placeholder="Descripcion de la subasta" minlength="10" maxlength="100" required>
+      <div *ngIf="description.touched && !description.valid">
+        <div class="error-font" *ngIf="description.errors.required"> Descripcion es requerida</div>
+
+        <div class="error-font" *ngIf="description.errors.minlength"> Descripcion debe ser de al menos 10 caracteres.</div>
+      </div>
       <label class="margin-form" for="address">Direccion</label>
       <input [(ngModel)]="auction.address" #address="ngModel" class="form-control margin-form" type="text" name="address" value="" placeholder="Direccion de la subasta">
+
       <label class="margin-form" for="pictures">Foto</label>
       <input [(ngModel)]="auction.pictures" #pictures="ngModel" class="form-control margin-form" type="text" name="pictures" value="" placeholder="URL de la foto">
+
       <label class="margin-form" for="initialPrice">Precio inicial</label>
-      <input [(ngModel)]="auction.initialPrice" #initialPrice="ngModel" class="form-control margin-form" type="number" name="initialPrice" value="" placeholder="Precio de la subasta">
-      <label class="margin-form" for="startDate">Fecha de inicio</label>
-      <input [(ngModel)]="auction.startDate" #startDate="ngModel" class="form-control margin-form" type="text" name="startDate" value="" placeholder="Con la forma DD-MM-AAAA">
+      <input [(ngModel)]="auction.initialPrice" #initialPrice="ngModel" class="form-control margin-form" type="number" name="initialPrice" min=1 value="" placeholder="Precio de la subasta" required>
+      <div *ngIf="initialPrice.touched && !initialPrice.valid">
+        <div class="error-font" *ngIf="initialPrice.errors.required"> Precio inicial es requerido</div>
+      </div>
+
+      <div class="row">
+      <div class="col-xs-12 col-12 col-md-4 form-group">
+        <input type="text"
+               placeholder="Datepicker" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
+               bsDatepicker [(ngModel)]="auction.startDate" #startDate="ngModel" class="form-control margin-form" name="startDate" [(bsValue)]="newVar" value="{{ newVar | date:'yyyy-MM-dd' }}">
+      </div>
+    </div>
+
+      <!-- <label class="margin-form" for="startDate">Fecha de inicio</label>
+      <input [(ngModel)]="auction.startDate" #startDate="ngModel" class="form-control margin-form" type="text" name="startDate" value="" placeholder="Con la forma DD-MM-AAAA"> -->
       <label class="margin-form" for="endDate">Fecha de finalizacion</label>
       <input [(ngModel)]="auction.endDate" #endDate="ngModel" class="form-control margin-form" type="text" name="endDate" value="" placeholder="Con la forma DD-MM-AAAA HH:MM:SS">
       <label class="margin-form" for="owner">USER ID (prueba)</label>
       <input [(ngModel)]="auction.owner" #owner="ngModel" class="form-control margin-form" type="number" name="owner" value="" placeholder="ID del usuario creador">
-      <button class="btn btn-sub margin-form" type="submit" name="button">Crear subasta</button>
+      <button [disabled]="!formNew.form.valid"class="btn btn-sub margin-form" type="submit" name="button">Crear subasta</button>
     </form>
-
+    <div class="row">
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+      <input type="text"
+             placeholder="Datepicker" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
+             class="form-control"
+             bsDatepicker>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+      <timepicker [(ngModel)]="mytime"></timepicker>
+    </div>
   </div>
 </div>

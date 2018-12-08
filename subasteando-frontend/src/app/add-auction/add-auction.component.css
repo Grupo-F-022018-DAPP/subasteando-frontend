@@ -1,3 +1,8 @@
 .margin-form {
   margin: 4px
 }
+
+.error-font {
+  color: red;
+  font-size: 11px;
+}

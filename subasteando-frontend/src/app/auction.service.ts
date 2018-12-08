@@ -29,6 +29,8 @@ export class AuctionService {
   saveAuction(newAuction: Auction){
     console.log(newAuction);
     console.log("NEW AUCTION");
+    var date = newAuction.startDate;
+    console.log(`${date.getFullDate()}-${date.getMonth()}-${date.getFullYear()}`);
    var formData = {
   	"title": newAuction.title,
 	"description": newAuction.description,
