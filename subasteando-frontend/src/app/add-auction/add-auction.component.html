@@ -31,18 +31,24 @@
       <div class="row">
       <div class="col-md-12 form-group">
         <label class="margin-form" for="startDate">Fecha de inicio</label>
-        <input type="text"
-               placeholder="Ingrese feha de inicio" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
-               bsDatepicker [(ngModel)]="auction.startDate" #startDate="ngModel" class="form-control margin-form" name="startDate"value="">
+        <input type="text" (ngModelChange)="dateChanged($event)"
+               placeholder="Ingrese fecha de inicio" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
+               bsDatepicker [(ngModel)]="auction.startDate"  [minDate]="minDate" #startDate="ngModel" class="form-control margin-form" name="startDate" required>
       </div>
     </div>
 
     <div class="row">
     <div class="col-md-12 form-group">
       <label class="margin-form" for="endDate">Fecha de finalizacion</label>
-      <input type="text"
-             placeholder="Ingrese fecha de finalizacion" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
-             bsDatepicker [(ngModel)]="auction.endDate" #startDate="ngModel" class="form-control margin-form" name="endDate" value="">
+      <div *ngIf="false"class="error-font">
+          Por favor completa la fecha de inicio
+      </div>
+      <div *ngIf="true" class="">
+        <input  type="text"
+               placeholder="Ingrese fecha de finalizacion" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" #endDateID
+               bsDatepicker [(ngModel)]="auction.endDate" #startDate="ngModel" class="form-control margin-form" name="endDate" value="" [minDate]="endMinDate" >
+      </div>
+
     </div>
   </div>
   <div class="row">
@@ -51,26 +57,9 @@
       <timepicker [(ngModel)]="auction.endTime"  #endTime="ngModel" name="endTime" value=""></timepicker>
     </div>
   </div>
-
-      <!-- <label class="margin-form" for="startDate">Fecha de inicio</label>
-      <input [(ngModel)]="auction.startDate" #startDate="ngModel" class="form-control margin-form" type="text" name="startDate" value="" placeholder="Con la forma DD-MM-AAAA"> -->
-      <!-- <label class="margin-form" for="endDate">Fecha de finalizacion</label>
-      <input [(ngModel)]="auction.endDate" #endDate="ngModel" class="form-control margin-form" type="text" name="endDate" value="" placeholder="Con la forma DD-MM-AAAA HH:MM:SS"> -->
       <label class="margin-form" for="owner">USER ID (prueba)</label>
       <input [(ngModel)]="auction.owner" #owner="ngModel" class="form-control margin-form" type="number" name="owner" value="" placeholder="ID del usuario creador">
-      <button [disabled]="!formNew.form.valid"class="btn btn-sub margin-form" type="submit" name="button">Crear subasta</button>
+      <button [disabled]="!formNew.form.valid" class="btn btn-sub margin-form" type="submit" name="button">Crear subasta</button>
     </form>
-    <div class="row">
-    <div class="col-xs-12 col-12 col-md-4 form-group">
-      <input type="text"
-             placeholder="Datepicker" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
-             class="form-control"
-             bsDatepicker>
-    </div>
   </div>
-  <!-- <div class="row">
-    <div class="col-xs-12 col-12 col-md-4 form-group">
-      <timepicker [(ngModel)]="mytime"></timepicker>
-    </div>
-  </div> -->
 </div>
