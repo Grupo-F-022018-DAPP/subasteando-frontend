@@ -34,7 +34,10 @@ export class AddAuctionComponent implements OnInit {
   }
 
   constructor(private auctionService: AuctionService) {
-    this.minDate = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    console.log(tomorrow);
+    this.minDate = tomorrow;
     this.endMinDate = new Date();
 
    }
@@ -48,7 +51,7 @@ export class AddAuctionComponent implements OnInit {
 
   dateChanged(event) {
     if (event !== null) {
-      var newDate = event;
+      const newDate = new Date(event.getTime());
       var twoDaysFromDate = newDate.setDate(newDate.getDate() + 2);
       var datePipe = new DatePipe('en-US');
       var formattedDate = datePipe.transform(twoDaysFromDate, 'MM/dd/yyyy');
@@ -56,6 +59,7 @@ export class AddAuctionComponent implements OnInit {
       this.endMinDate = finalDate;
       this.dateInput.nativeElement.value = "";
     }
+    return event;
   }
 
 }
