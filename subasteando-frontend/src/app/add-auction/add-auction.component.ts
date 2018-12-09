@@ -40,7 +40,6 @@ export class AddAuctionComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log("mira cabie")
   }
 
   saveAuction(auctionForm: NgForm) {
@@ -48,13 +47,17 @@ export class AddAuctionComponent implements OnInit {
   }
 
   dateChanged(event) {
-    var newDate = event;
-    var twoDaysFromDate = newDate.setDate(newDate.getDate() + 2);
-    var datePipe = new DatePipe('en-US');
-    var formattedDate = datePipe.transform(twoDaysFromDate, 'MM/dd/yyyy');
-    var finalDate = new Date(formattedDate);
-    this.endMinDate = finalDate;
-    this.dateInput.nativeElement.value = "";
+    if (event !== null) {
+      console.log(event);
+      console.log("aaaaa");
+      var newDate = event;
+      var twoDaysFromDate = newDate.setDate(newDate.getDate() + 2);
+      var datePipe = new DatePipe('en-US');
+      var formattedDate = datePipe.transform(twoDaysFromDate, 'MM/dd/yyyy');
+      var finalDate = new Date(formattedDate);
+      this.endMinDate = finalDate;
+      this.dateInput.nativeElement.value = "";
+    }
   }
 
 }

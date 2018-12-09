@@ -5,16 +5,16 @@
       <label class="margin-form" for="title">Título</label>
       <input [(ngModel)]="auction.title" #title="ngModel" class="form-control margin-form" type="text" name="title" value="" placeholder="Título de la subasta" minlength="10" maxlength="30" required>
       <div *ngIf="title.touched && !title.valid">
-        <div class="error-font" *ngIf="title.errors.required"> Titulo es requerido</div>
+        <div class="error-font" *ngIf="title.errors.required"> Título es requerido</div>
 
-        <div class="error-font" *ngIf="title.errors.minlength"> Titulo debe ser de al menos 10 caracteres.</div>
+        <div class="error-font" *ngIf="title.errors.minlength"> Título debe ser de al menos 10 caracteres.</div>
       </div>
       <label class="margin-form" for="description">Descripcion</label>
       <input [(ngModel)]="auction.description" #description="ngModel" class="form-control margin-form" type="text" name="description" value="" placeholder="Descripcion de la subasta" minlength="10" maxlength="100" required>
       <div *ngIf="description.touched && !description.valid">
-        <div class="error-font" *ngIf="description.errors.required"> Descripcion es requerida</div>
+        <div class="error-font" *ngIf="description.errors.required"> Descripción es requerida</div>
 
-        <div class="error-font" *ngIf="description.errors.minlength"> Descripcion debe ser de al menos 10 caracteres.</div>
+        <div class="error-font" *ngIf="description.errors.minlength"> Descripción debe ser de al menos 10 caracteres.</div>
       </div>
       <label class="margin-form" for="address">Direccion</label>
       <input [(ngModel)]="auction.address" #address="ngModel" class="form-control margin-form" type="text" name="address" value="" placeholder="Direccion de la subasta">
@@ -33,28 +33,27 @@
         <label class="margin-form" for="startDate">Fecha de inicio</label>
         <input type="text" (ngModelChange)="dateChanged($event)"
                placeholder="Ingrese fecha de inicio" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
-               bsDatepicker [(ngModel)]="auction.startDate"  [minDate]="minDate" #startDate="ngModel" class="form-control margin-form" name="startDate" required>
+               bsDatepicker [(ngModel)]="auction.startDate"  [minDate]="minDate" #startDate="ngModel" class="form-control margin-form" name="startDate" required readonly="readonly">
+       <div *ngIf="startDate.touched"class="error-font">
+          <div class="error-font" *ngIf="startDate.errors && !startDate.valid"> Fecha de inicio es requerida</div>
+       </div>
       </div>
     </div>
 
     <div class="row">
     <div class="col-md-12 form-group">
-      <label class="margin-form" for="endDate">Fecha de finalizacion</label>
-      <div *ngIf="false"class="error-font">
-          Por favor completa la fecha de inicio
+      <label class="margin-form" for="endDate">Fecha de finalización</label>
+      <input  type="text"placeholder="Ingrese fecha de finalizacion" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" #endDateID
+              bsDatepicker [(ngModel)]="auction.endDate" #endDate="ngModel" class="form-control margin-form" name="endDate" value="" [minDate]="endMinDate" required readonly="readonly">
+      <div *ngIf="endDate.touched"class="error-font">
+         <div class="error-font" *ngIf="endDate.errors && !endDate.valid"> Fecha de finalización es requerida</div>
       </div>
-      <div *ngIf="true" class="">
-        <input  type="text"
-               placeholder="Ingrese fecha de finalizacion" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" #endDateID
-               bsDatepicker [(ngModel)]="auction.endDate" #startDate="ngModel" class="form-control margin-form" name="endDate" value="" [minDate]="endMinDate" >
-      </div>
-
     </div>
   </div>
   <div class="row">
     <div class="col-md-12 form-group">
-      <label class="margin-form" for="endTime">Hora de finalizacion</label>
-      <timepicker [(ngModel)]="auction.endTime"  #endTime="ngModel" name="endTime" value=""></timepicker>
+      <label class="margin-form" for="endTime">Hora de finalización</label>
+      <timepicker [(ngModel)]="auction.endTime"  #endTime="ngModel" name="endTime" value="" required readonly="readonly"></timepicker>
     </div>
   </div>
       <label class="margin-form" for="owner">USER ID (prueba)</label>
