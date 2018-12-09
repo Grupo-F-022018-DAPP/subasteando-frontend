@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuctionService } from './auction.service';
-import { Subscription, timer, pipe } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { AuthService } from './auth/auth.service';
 
 
 @Component({
@@ -15,15 +14,18 @@ export class AppComponent implements OnInit {
   subscription: Subscription;
   statusText: string;
 
-  constructor(private auctionService: AuctionService){
-
+  constructor(public auth: AuthService){
+     auth.handleAuthentication();
   }
 
 
   ngOnInit() {
-    this.subscription = timer(0, 300000).pipe(
-        switchMap(() => this.auctionService.checkdata())
-      ).subscribe(result => this.statustext = result);
+    // this.subscription = timer(0, 300000).pipe(
+    //     switchMap(() => this.auctionService.checkdata())
+    //   ).subscribe(result => this.statustext = result);
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      this.auth.renewSession();
+    }
 
   }
 }

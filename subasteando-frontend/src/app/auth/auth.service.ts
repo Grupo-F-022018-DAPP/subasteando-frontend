@@ -16,7 +16,7 @@ export class AuthService {
     clientID: '3AgsX3gbhUws4iBoHy3MQTSMlqOA2ckJ',
     domain: 'tpsubastas.auth0.com',
     responseType: 'token id_token',
-    redirectUri: 'http://localhost:8080/auctions',
+    redirectUri: 'http://localhost:4200/',
     scope: 'openid'
   });
 
@@ -88,7 +88,5 @@ export class AuthService {
     // access token's expiry time
     return new Date().getTime() < this._expiresAt;
   }
-
-}
 
 }

@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AddAuctionComponent } from './add-auction/add-auction.component'
 
+import { AuthService } from './auth/auth.service';
+
 import localePy from '@angular/common/locales/es-PY';
 import localePt from '@angular/common/locales/pt';
 import localeEn from '@angular/common/locales/en';
@@ -48,7 +50,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     DlDateTimePickerDateModule,
     TimepickerModule.forRoot()
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

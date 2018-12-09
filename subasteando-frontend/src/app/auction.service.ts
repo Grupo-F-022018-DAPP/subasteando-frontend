@@ -34,7 +34,7 @@ export class AuctionService {
     // console.log("NEW AUCTION");
      var date = newAuction.startDate;
     // console.log( moment(date).format('MM/DD/YYYY'));
-)
+//)
    var formData = {
   	"title": newAuction.title,
 	"description": newAuction.description,
@@ -71,7 +71,7 @@ export class AuctionService {
     return [];
   }
 }
-// 
+//
 // {
 // 	"title": "A fine cat",
 // 	"description": "miau miau miua miau mauia miua muiiiaa",
