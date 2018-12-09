@@ -48,8 +48,6 @@ export class AddAuctionComponent implements OnInit {
 
   dateChanged(event) {
     if (event !== null) {
-      console.log(event);
-      console.log("aaaaa");
       var newDate = event;
       var twoDaysFromDate = newDate.setDate(newDate.getDate() + 2);
       var datePipe = new DatePipe('en-US');
