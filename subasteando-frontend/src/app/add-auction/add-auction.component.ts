@@ -43,18 +43,21 @@ export class AddAuctionComponent implements OnInit {
   }
 
   saveAuction(auctionForm: NgForm) {
+    console.log(this.auction)
     this.auctionService.saveAuction(this.auction);
   }
 
   dateChanged(event) {
+    console.log(event);
     if (event !== null) {
-      var newDate = event;
-      var twoDaysFromDate = newDate.setDate(newDate.getDate() + 2);
-      var datePipe = new DatePipe('en-US');
-      var formattedDate = datePipe.transform(twoDaysFromDate, 'MM/dd/yyyy');
-      var finalDate = new Date(formattedDate);
-      this.endMinDate = finalDate;
-      this.dateInput.nativeElement.value = "";
+      // var newDate = event;
+      // var twoDaysFromDate = newDate.setDate(newDate.getDate() + 2);
+      // var datePipe = new DatePipe('en-US');
+      // var formattedDate = datePipe.transform(twoDaysFromDate, 'MM/dd/yyyy');
+      // var finalDate = new Date(formattedDate);
+      // this.endMinDate = finalDate;
+      // this.dateInput.nativeElement.value = "";
+      return this.startDate = event;
     }
   }
 

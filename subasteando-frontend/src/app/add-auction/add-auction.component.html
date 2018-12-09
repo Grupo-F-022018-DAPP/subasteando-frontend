@@ -33,7 +33,7 @@
         <label class="margin-form" for="startDate">Fecha de inicio</label>
         <input type="text" (ngModelChange)="dateChanged($event)"
                placeholder="Ingrese fecha de inicio" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
-               bsDatepicker [(ngModel)]="auction.startDate"  [minDate]="minDate" #startDate="ngModel" class="form-control margin-form" name="startDate" required readonly="readonly">
+               bsDatepicker [(ngModel)]="auction.startDate"  [minDate]="minDate" #startDate="ngModel" class="form-control margin-form" name="startDate" required >
        <div *ngIf="startDate.touched"class="error-font">
           <div class="error-font" *ngIf="startDate.errors && !startDate.valid"> Fecha de inicio es requerida</div>
        </div>

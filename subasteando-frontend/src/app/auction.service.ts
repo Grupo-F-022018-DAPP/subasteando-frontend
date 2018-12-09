@@ -14,6 +14,7 @@ import { AUCTIONS } from './mock-auction';
 export class AuctionService {
 
   resp: any;
+  auctNews: Auction[];
   constructor(private http: HttpClient) { }
 
   getAuctions(page: number): Observable<Auction[]> {
@@ -31,7 +32,7 @@ export class AuctionService {
   saveAuction(newAuction: Auction){
      console.log(newAuction);
     // console.log("NEW AUCTION");
-    // var date = newAuction.startDate;
+     var date = newAuction.startDate;
     // console.log( moment(date).format('MM/DD/YYYY'));
 )
    var formData = {
@@ -47,4 +48,35 @@ export class AuctionService {
    console.log(formData);
     return this.http.post(`/api/auctions/new?userId=${newAuction.owner}`, formData).subscribe(data => console.log(data));
   }
+
+  checkdata() {
+    console.log("waaaaaaaaaaaaaa");
+    var auctionsNew = this.http.get(`/api/auctions/byState/page?pageAmount=100&pageIndex=0&state=New`).subscribe(result => {
+      console.log("CAMBIO ESTADO WHACHOOO");
+      result.content.forEach((r) => {
+        var formData =  {
+          "title": r.title,
+      	   "description": "agdjahgdjasgdjas",
+           "direction": r.address,
+           "initialPrice": r.initialPrice,
+           "startDate": r.startDate,
+           "endDate": r.endDate,
+          "auctionState": "InProgress"
+        };
+        this.http.put(`/api/auctions/${r.id}`, formData).subscribe(data => console.log(data));
+      })
+      console.log(result.content);
+    });
+    console.log(this.auctNews);
+    return [];
+  }
 }
+// 
+// {
+// 	"title": "A fine cat",
+// 	"description": "miau miau miua miau mauia miua muiiiaa",
+// 	"initialPrice": 10000,
+// 	"startDate": "03-03-2019",
+// 	"state":"InProgress"
+//
+// }
