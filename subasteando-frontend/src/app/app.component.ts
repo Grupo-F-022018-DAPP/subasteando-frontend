@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuctionService } from './auction.service';
 import { AuthService } from './auth/auth.service';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 
 @Component({
@@ -20,9 +21,6 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.subscription = timer(0, 300000).pipe(
-    //     switchMap(() => this.auctionService.checkdata())
-    //   ).subscribe(result => this.statustext = result);
     if (localStorage.getItem('isLoggedIn') === 'true') {
       this.auth.renewSession();
     }

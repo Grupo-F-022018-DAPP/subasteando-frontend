@@ -11,7 +11,7 @@ import { AuctionsComponent } from './auctions/auctions.component';
 import { AuctionDetailComponent } from './auction-detail/auction-detail.component';
 import { BidsComponent } from './bids/bids.component';
 import { UsersComponent } from './users/users.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AddAuctionComponent } from './add-auction/add-auction.component'
 
@@ -21,6 +21,8 @@ import localePy from '@angular/common/locales/es-PY';
 import localePt from '@angular/common/locales/pt';
 import localeEn from '@angular/common/locales/en';
 import localeEs from '@angular/common/locales/es';
+
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 // registrar los locales con el nombre que quieras utilizar a la hora de proveer
 registerLocaleData(localePy, 'es');
@@ -50,7 +52,13 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     DlDateTimePickerDateModule,
     TimepickerModule.forRoot()
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-Ar' }, AuthService],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-Ar' },
+    AuthService,
+    { provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

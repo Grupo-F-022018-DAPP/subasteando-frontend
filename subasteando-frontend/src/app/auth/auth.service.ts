@@ -17,7 +17,7 @@ export class AuthService {
     domain: 'tpsubastas.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/',
-    scope: 'openid'
+    scope: 'openid profile'
   });
 
   constructor(public router: Router) {
@@ -51,7 +51,7 @@ export class AuthService {
     });
   }
 
-  private setSession(authResult): void {
+    private setSession(authResult): void {
     // Set isLoggedIn flag in localStorage
     localStorage.setItem('isLoggedIn', 'true');
     // Set the time that the access token will expire at
@@ -59,15 +59,20 @@ export class AuthService {
     this._accessToken = authResult.accessToken;
     this._idToken = authResult.idToken;
     this._expiresAt = expiresAt;
+
+    localStorage.setItem('access_token', authResult.accessToken);
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('expires_at', expiresAt);
   }
 
   public renewSession(): void {
     this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } else if (err) {
+      if (err) {
         alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+        console.log(err)
         this.logout();
+      }else{
+        this.setSession(authResult);
       }
     });
   }
