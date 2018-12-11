@@ -1,4 +1,54 @@
-<h4 class="card-title">
-  <a>{{auction.title}}</a>
+<div class="container">
+<div class='image-container'><img src={{auction?.pictures[0]}} alt=""></div>
+<h4 class="card-title" style="margin-top:15px">
+  <a>{{auction?.title}}</a>
 </h4>
-<p class="card-text">{{auction.description}}</p>
+<p class="card-text">Subasta por: {{auction?.owner.name}} {{auction?.owner.surname}}</p>
+<p class="card-text">Estado: {{auction?.auctionState.name}}</p>
+<p class="card-text">{{auction?.description}}</p>
+<p class="card-text">Fecha de inicio: {{auction?.startDate }}</p>
+<p class="card-text">Fecha de finalización: {{auction?.endDate}}</p>
+<div class="">
+
+
+</div>
+<div *ngIf="canBid(auction)" class="">
+  <div *ngIf="!bidded" class="next-bid-box">
+    <div  class="bid-description bold underlined"> Próxima oferta: </div>
+    <div class="flex">
+      <div  class="bid-description bold">Tramo n° {{bidsLength + 1}}</div>
+      <div  class="bid-description">$ {{auction?.nextPrice}}</div>
+      <div class="options-margin btn btn-sub" (click)="manualBid()">
+        <a class="white-font" target="_parent">Realizar oferta</a>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="bidded" class="next-bid-box reload-box">
+    <div class="flex white-font">
+      <div class="bid-description bold">Muchas gracias por tu oferta!</div>
+      <div class="options-margin btn btn-reload">
+        <a class="bold" routerLink="/auction/{{auction.id}}" target="_parent">Recargar página</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf=bids>
+<div *ngFor="let bid of bids?.slice().reverse(); let i = index ">
+  <div *ngIf='i == 0' >
+    <div class="current-bid-box">
+      <div  class="bid-description bold underlined"> Ultima oferta: </div>
+      <div  class="flex">
+        <div  class="bid-description bold">Tramo n° {{bidsLength - i}} </div>
+        <div class="bid-description"> {{nameAndSurname(bid, bids)}} </div>
+        <div class="bid-description">$ {{bid.price}}</div>
+      </div>
+    </div>
+    <h3 style="margin: 20px 0;">Avance de la subasta</h3>
+  </div>
+  <div *ngIf='i != 0' class="bid-box flex">
+      <div class="bid-description bold">Tramo n° {{bidsLength - i}}</div>
+      <div class="bid-description"> {{nameAndSurname(bid, bids)}} </div>
+      <div class="bid-description">$ {{bid?.price}} </div>
+  </div>
+</div>
+</div>

@@ -15,7 +15,6 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  font-family: 'Montserrat';
 }
 
 hr.star-light,
@@ -142,8 +141,8 @@ section h2 {
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
   }
@@ -173,8 +172,8 @@ section h2 {
 }
 
 header.masthead {
-  padding-top: calc(2rem + 72px);
-  padding-bottom: 2rem;
+  padding-top: calc(0rem + 72px);
+  padding-bottom: 0rem;
 }
 
 header.masthead h1 {
@@ -189,8 +188,8 @@ header.masthead h2 {
 
 @media (min-width: 992px) {
   header.masthead {
-    padding-top: calc(2rem + 106px);
-    padding-bottom: 2rem;
+    padding-top: calc(0rem + 106px);
+    padding-bottom: rem;
   }
   header.masthead h1 {
     font-size: 4.75em;
@@ -337,6 +336,7 @@ form .row:first-child .floating-label-form-group {
 
 a {
   color: #18BC9C;
+
 }
 
 a:focus, a:hover, a:active {
@@ -386,4 +386,18 @@ a:focus, a:hover, a:active {
 .portfolio-item {
   margin-top: 30px!important;
   margin-bottom: 30px!important;
+}
+
+.image-container {
+  width: 70%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.green-font, green-font:focus, green-font:hover, green-font:active {
+  color: #18BC9C;
 }

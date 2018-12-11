@@ -1,0 +1,35 @@
+.banner {
+  height: 500 px!important;
+  width: 100%;
+  background-color: #18BC9C;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.hammer {
+  max-width: 250px;
+}
+
+.banner-text {
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.banner-text-sm {
+    color: white;
+    font-size:25px;
+    font-weight: bold;
+}
+
+.banner-cotainer {
+  justify-content: center;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 772px) {
+  .banner {
+    display: none;
+  }
+}

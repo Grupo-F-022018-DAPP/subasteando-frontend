@@ -1,14 +1,45 @@
-<h1>Subastas recientes</h1>
+<div class="container">
+<h1>Subastas</h1>
+<div class="row">
+  <!-- <div class="options-margin btn btn-sub">
+    <a class="white-font" routerLink="/auctions/0" target="_parent">Todas</a>
+  </div>
+  <div class="options-margin btn btn-sub">
+    <a class="white-font" routerLink="/auctions/0" target="_parent">En curso</a>
+  </div>
+  <div class="options-margin btn btn-sub">
+    <a class="white-font" routerLink="/auctions/0" target="_parent">Terminadas</a>
+  </div> -->
+</div>
 <div class="row">
   <div class="col-lg-4 portfolio-item"  *ngFor="let auction of auctions" style="margin-top:30px">
     <div class="card h-100">
-      <a href="#"><img class="card-img-top" src="https://fotos01.diariodeibiza.es/2009/05/16/318x200/2009-05-16_IMG_2009-05-16_00:47:35_efe_20090515_153416_1_56_2.jpg" alt=""></a>
+      <a><img class="card-img-top" style="height: 240px" src={{auction.pictures[0]}} alt=""></a>
       <div class="card-body">
         <h4 class="card-title">
-          <a routerLink="/auction/{{auction.id}}">{{auction.title}}</a>
+          <a class="green-font" routerLink="/auction/{{auction.id}}">{{auction.title}}</a>
         </h4>
+        <p class="card-text">Subasta por: {{auction.owner.name}} {{auction.owner.surname}}</p>
+        <p class="card-text">Estado: {{auction?.auctionState.name}}</p>
         <p class="card-text">{{auction.description}}</p>
+        <!-- <p class="card-text">Fecha de inicio: {{auction.startDate | date:'short' }}</p> -->
+        <p class="card-text">Fecha de inicio: {{auction.startDate}}</p>
+        <div *ngFor="let bid of auction.biddings">
+          <p>Oferta {{bid.id}}: </p>
+          <p class="card-text">Por: {{bid.user.name}} {{bid.user.surname}} ({{bid.user.email}}) | Precio: ${{bid.price}}</p>
+        </div>
+        <p class="card-text">Precio actual: ${{auction.actualPrice}}</p>
       </div>
     </div>
+</div>
+</div>
+
+<div class="row pagination-margin" >
+  <div class="far-left" *ngIf="hasPrevious">
+    <a class="green-font" routerLink="/auctions/{{getPreviousPage()}}" target="_parent"> <<Anterior</a>
+  </div>
+  <div class="far-right" *ngIf="hasNext">
+    <a class="green-font" routerLink="/auctions/{{getNextPage()}}" target="_parent"> Siguiente>> </a>
+  </div>
 </div>
 </div>

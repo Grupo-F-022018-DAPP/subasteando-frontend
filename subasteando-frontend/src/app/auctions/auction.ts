@@ -1,14 +1,16 @@
+import { Bid } from '../bids/bid';
+import { User } from '../users/user';
+
 export class Auction {
   id: number;
   title: string;
   description: string;
-  //pictures: string; es una lista
+  pictures: string[];
+  owner: User;
   initialPrice: number;
-  // fechas
-  //startDate: string;
-  //endDate: string;
+  startDate: Date;
+  endDate: Date;
   state: string;
-  // list of biddings
-  //biddings: string;
+  biddings: Bid[];
   actualPrice: number;
 }

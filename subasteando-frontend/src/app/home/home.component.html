@@ -1,0 +1,30 @@
+<div class="banner" style="height:330px; padding: 15px 0">
+<a class="banner-text banner-cotainer" ><img class="hammer" src="https://i.imgur.com/zpedWyx.png" alt="">Subasteando.com</a>
+<a class="banner-text-sm banner-cotainer" >Donde subasteas y ofertas de todo</a>
+</div>
+
+<div class="container">
+<div class="row" style="margin-top: 15px;">
+  <h2>Subastas recientes</h2>
+</div>
+<div class="row">
+  <div class="col-lg-4 portfolio-item"  *ngFor="let auction of auctions" style="margin-top:30px">
+    <div class="card h-100">
+      <a><img class="card-img-top" style="height: 240px" src={{auction.pictures[0]}} alt=""></a>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a class="green-font" routerLink="/auction/{{auction.id}}">{{auction.title}}</a>
+        </h4>
+        <p class="card-text">Subasta por: {{auction.owner.name}} {{auction.owner.surname}}</p>
+        <p class="card-text">{{auction.description}}</p>
+        <p class="card-text">Fecha de inicio: {{auction.startDate  }}</p>
+        <p class="card-text">Fecha de finalización: {{auction.endDate }}</p>
+        <div *ngFor="let bid of auction.biddings">
+          <p>Oferta {{bid.id}}: </p>
+          <p class="card-text">Por: {{bid.user.name}} {{bid.user.surname}} ({{bid.user.email}}) | Precio: ${{bid.price}}</p>
+        </div>
+        <p class="card-text">Precio actual: ${{auction.actualPrice}}</p>
+      </div>
+    </div>
+</div>
+</div>
