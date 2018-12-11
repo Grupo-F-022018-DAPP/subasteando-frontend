@@ -17,7 +17,7 @@ export class AuthService {
     domain: 'tpsubastas.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/',
-    scope: 'openid profile'
+    scope: 'openid'
   });
 
   constructor(public router: Router) {
@@ -84,7 +84,11 @@ export class AuthService {
     this._expiresAt = 0;
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
     // Go back to the home route
+    this.auth0.logout({returnTo: 'http://localhost:4200/'});
     this.router.navigate(['/']);
   }
 
